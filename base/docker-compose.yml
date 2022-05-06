@@ -1,0 +1,107 @@
+version: '3.9'
+
+services:
+    
+  splunk-otel-collector:
+    image: quay.io/signalfx/splunk-otel-collector:latest
+    container_name: splunk-otel-collector
+    restart: always
+    env_file:
+     - collector.env
+    ports:
+      - 55681:55681
+      - 13133:13133
+      - 14250:14250
+      - 14268:14268
+      - 4317:4317
+      - 4318:4318
+      - 6060:6060
+      - 8888:8888
+      - 9080:9080
+      - 9411:9411
+      - 9943:9943
+
+  datagen:
+    image: datagen
+    container_name: datagen
+    build:
+      context: ../datagen
+    restart: always
+    ports:
+      - 80:80
+
+  apigateway:
+    image: apigateway
+    container_name: apigateway
+    build:
+      context: ../apigateway
+    restart: always
+    env_file:
+      - apm.env
+    environment:
+      - OTEL_SERVICE_NAME=apigateway
+    ports:
+      - 8080:3000
+
+  ad:
+    image: ad
+    container_name: ad
+    build:
+      context: ../ad
+    restart: always
+    env_file:
+      - apm.env
+    environment:
+      - OTEL_SERVICE_NAME=ad
+
+  cart:
+    image: cart
+    container_name: cart
+    build:
+      context: ../cart
+    restart: always
+    depends_on:
+      - mongo
+    env_file:
+      - apm.env
+    environment:
+      - OTEL_SERVICE_NAME=cart
+
+  catalog:
+    image: catalog
+    container_name: catalog
+    build:
+      context: ../catalog
+    restart: always
+    env_file:
+      - apm.env
+    environment:
+      - OTEL_SERVICE_NAME=catalog
+
+  checkout:
+    image: checkout
+    container_name: checkout
+    build:
+      context: ../checkout
+    restart: always
+    env_file:
+      - apm.env
+    environment:
+      - OTEL_SERVICE_NAME=checkout
+
+  payment:
+    image: payment
+    container_name: payment
+    build:
+      context: ../payment
+    restart: always
+    env_file:
+      - apm.env
+    environment:
+      - OTEL_SERVICE_NAME=payment
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: always
+    command: mongod --quiet --logpath /dev/null
