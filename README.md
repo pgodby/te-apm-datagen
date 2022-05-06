@@ -7,16 +7,17 @@ The datagen is a React UI frontend that sends HTTP requests to an API Gateway. T
 - the HTTP response code
 
 The datagen can be configured to send requests as follows:
-- a request can be sent to the API Gateway once every 10, 20, or 30 seconds
-- the request can be repeated for a 15 minute interval, with a maximum total time allowed of 2 hours
+- a single request can be sent to the API Gateway once every 10, 20, or 30 seconds
+- the request can be repeated for 15 minute intervals, with a maximum total time allowed of 2 hours
 
 By using this datagen, you can "light up" any of the connections between services or any service node itself. For example, if you set the HTTP response delay for the *ad* service to 5 seconds, and you set the response code for the *payment* service to 401, you would see the following in the Splunk APM service map:
 
 ![service map](demo.png)
 
 ## Requirements
-- Docker
-- Docker Compose
+- [git](https://git-scm.com/)
+- [Docker Engine](https://docs.docker.com/engine/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Installation & Configuration
 1. Clone the GitHub repository
