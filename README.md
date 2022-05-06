@@ -19,6 +19,7 @@ In order to use this datagen, the following software must be installed. This sof
 - [git](https://git-scm.com/)
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+
 **Note:** If Zscaler is running on your machine, turn it off. It will break connectivity between the OTEL Collector and the Observability Cloud.
 
 ## Installation & Configuration
