@@ -28,14 +28,14 @@ In order to use this datagen, the following software must be installed. This sof
     git clone https://github.com/pgodby/te-apm-datagen
     ```
 1. In the **/base** directory, create a new file named **collector.env**. In this file, enter the following key-value pairs to configure the demo for your Splunk APM realm. Replace the values listed below as follows:
-    - *< access_token >* = Enter a valid access token from your APM realm.
-    - *< realm >* = Enter your APM realm. For example: us1
+    - *\<access_token>* = Enter a valid access token from your APM realm.
+    - *\<realm>* = Enter your APM realm. For example: us1
     ```
     SPLUNK_ACCESS_TOKEN=<access_token>
     SPLUNK_REALM=<realm>
     ```
 3. In the **/base** directory, create a new file named **apm.env**. In this file, enter the following key-value pairs to configure the deployment for each of the microservices in your Splunk APM realm. Leave the OTEL_EXPORTER_OTLP_ENDPOINT as specified to ensure each service can contact the Splunk OTEL Collector container.
-    - *< name >* = Enter a unique name for your deployment environment. This value can be used to filter for your specific microservices in APM.
+    - *\<name>* = Enter a unique name for your deployment environment. This value can be used to filter for your specific microservices in APM.
     ```
     OTEL_RESOURCE_ATTRIBUTES=deployment.environment=<name>
     OTEL_EXPORTER_OTLP_ENDPOINT=http://splunk-otel-collector:4317
