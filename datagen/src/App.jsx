@@ -36,10 +36,6 @@ class App extends React.Component {
         };
     }
 
-    componentDidMount() {
-        this.setState({host: window.location.hostname});
-    }
-
     delaySelected = (e, {value}) => {
         this.stop();
         this.setState({delay: value});
@@ -83,7 +79,6 @@ class App extends React.Component {
     dataTick = () => {
         const { count } = this.state;
         this.setState({count: count + 1});
-        console.log("*** Simulation ***");
         fetch(`http://localhost:8080/api`);
     }
 
@@ -100,7 +95,8 @@ class App extends React.Component {
         	<ColumnLayout>
                 <ColumnLayout.Row>
                     <ColumnLayout.Column span={12}>
-                        <Heading>TE Datagen: Splunk Application Performance Monitoring</Heading>
+                        <Heading level={4}>TE Datagen</Heading>
+                        <Heading>Splunk Application Performance Monitoring</Heading>
                         <Heading level="ss">Microservices HTTP Requests Simulation</Heading>
         			</ColumnLayout.Column>
         		</ColumnLayout.Row>
