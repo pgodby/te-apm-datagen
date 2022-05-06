@@ -1,4 +1,5 @@
-# TE Datagen: Splunk Application Performance Monitoring
+## TE Datagen
+# Splunk Application Performance Monitoring
 This repository contains a microservices demo for Splunk Application Monitoring (APM). The datagen uses OpenTelemetry and auto-instrumentation to send trace/span data to APM.
 
 The datagen is a React UI frontend that sends HTTP requests to an API Gateway. The gateway, in turn, sends additional requests to the rest of the services. The datagen allows you to configure the following for any of the services that are contacted by the gateway:
