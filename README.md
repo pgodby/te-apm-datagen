@@ -15,11 +15,13 @@ By using this datagen, you can "light up" any of the connections between service
 ![service map](demo.png)
 
 ## Requirements
+In order to use this datagen, the following software must be installed. This software can be installed in a cloud platform (such as AWS), a virtual machine, or your local desktop.
 - [git](https://git-scm.com/)
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Installation & Configuration
+1. If Zscaler is running on your machine, turn it off. It will break connectivity between the OTEL Collector and the Observability Cloud.
 1. Clone the GitHub repository
     ```
     git clone https://github.com/pgodby/te-apm-datagen
