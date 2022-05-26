@@ -22,7 +22,6 @@ class Service extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({host: window.location.hostname});
         this.resetData();
     }
 
@@ -50,9 +49,9 @@ class Service extends React.Component {
     saveData = async (e) => {
         const { code, delay } = this.state;
         const { service } = this.props;
-        const url = `http://localhost:8080/config?service=${service}&code=${code}&delay=${delay}`;
+        const url = `http://${window.location.href}:8080/config?service=${service}&code=${code}&delay=${delay}`;
         const r = await fetch(url);
-        console.log(r);
+        //console.log(r);
     };
 
     render() {
