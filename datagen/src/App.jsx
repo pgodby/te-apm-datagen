@@ -79,7 +79,7 @@ class App extends React.Component {
     dataTick = () => {
         const { count } = this.state;
         this.setState({count: count + 1});
-        fetch(`http://${window.location.href}:8080/api`);
+        fetch(`http://${window.location.hostname}:8080/api`);
     }
 
     render() {

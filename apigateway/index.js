@@ -1,6 +1,8 @@
 require('isomorphic-fetch');
 const express = require('express');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 
 let config = {
   name: "APIGATEWAY",
